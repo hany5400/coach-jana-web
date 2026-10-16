@@ -2986,8 +2986,8 @@ main {
   }
 
   .callout-b {
-    top: 6%;
-    right: 16px;
+    top: 8%;
+    right: 44px;
   }
 
   .callout-c {
@@ -3017,9 +3017,9 @@ main {
     width: 100%;
   }
 
-  /* Shift Jana slightly toward the right edge on tablet */
+  /* Shift Jana slightly toward the right edge on tablet and increase size slightly */
   .hero-portrait-card {
-    max-width: 360px;
+    max-width: 395px;
     margin-left: auto;
     margin-right: -14px;
   }
@@ -3199,7 +3199,7 @@ main {
   /* Two columns on mobile: text neatly on left, Jana prominent on bottom-right */
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.24fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.32fr);
     gap: 6px;
     align-items: flex-end;
     text-align: left;
@@ -3301,9 +3301,9 @@ main {
 
   .hero-portrait-card {
     width: 100%;
-    max-width: 290px;
+    max-width: 315px;
     margin-left: auto;
-    margin-right: -20px;
+    margin-right: -16px;
     margin-bottom: 0;
     position: relative;
     align-self: flex-end;
@@ -3367,11 +3367,11 @@ main {
     transform: none;
   }
 
-  /* Callout B: Top Right pointing down-left toward Jana's head/shoulder (shifted to the left) */
+  /* Callout B: Top Right pointing down-left toward Jana's head/shoulder (moved closer to Jana) */
   .callout-b {
-    top: 5%;
+    top: 7%;
     left: auto;
-    right: 12px;
+    right: 36px;
     align-items: flex-start;
     animation: calloutPopRight 0.5s var(--ease-spring) 1.2s both;
   }
