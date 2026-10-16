@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jana Magdy — Coach Mego | Intelligent Fitness for Women</title>
+  <meta name="description"
+    content="Official fitness brand website for Jana Magdy (Coach Mego). Intelligent, intentional women's fitness coaching, structured training cycles, and sustainable transformation.">
+
+  <!-- Circular Brand Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+  <!-- Google Fonts: Playfair Display (Display) & Spectral (Body)
+       French-inspired editorial pairing: a Didone display face for headings and
+       a Paris-foundry (Production Type) text face for everything else. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons via CDN. `defer` stops the icon set from blocking first
+       paint, which previously made the page feel stuck while it downloaded. -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <script>
+    // Refresh always lands back on the hero at the very top: opt out of the
+    // browser's scroll restoration so a stale mid-page offset is never
+    // restored over the hero entrance animation.
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-light-blue">
+  <!-- Subtle Luminous Atmosphere & Scientific Light Grid Background -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <div class="brand-identity">
+        <a href="#hero" class="brand-logo-frame" aria-label="Coach Mego Home">
+          <img src="assets/images/logo.jpg" alt="Coach Mego Monogram Logo" class="brand-logo-img">
+        </a>
+        <div class="brand-naming static-brand-naming">
+          <span class="brand-name">JANA MAGDY</span>
+          <span class="brand-subtitle">COACH MEGO</span>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#video-feature" class="nav-link">Inside Training</a></li>
+          <li><a href="#pricing" class="nav-link">Subscriptions</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Connect</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Items -->
+      <div class="header-actions">
+        <a href="#pricing" class="btn btn-header-cta">
+          <span>Join Now</span>
+          <i data-lucide="arrow-right" class="btn-icon"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false"
+          aria-controls="mobileDrawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <div class="brand-identity">
+          <div class="brand-logo-frame small">
+            <img src="assets/images/logo.jpg" alt="Logo" class="brand-logo-img">
+          </div>
+          <div class="brand-naming static-brand-naming">
+            <span class="brand-name">JANA MAGDY</span>
+            <span class="brand-subtitle">COACH MEGO</span>
+          </div>
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <nav class="drawer-nav">
+        <ul class="drawer-nav-list">
+          <li><a href="#about" class="drawer-nav-link">About Coach Mego</a></li>
+          <li><a href="#video-feature" class="drawer-nav-link">Inside The Training</a></li>
+          <li><a href="#pricing" class="drawer-nav-link">Subscription Plans</a></li>
+          <li><a href="#reviews" class="drawer-nav-link">Reviews</a></li>
+          <li><a href="#contact" class="drawer-nav-link">Connect</a></li>
+        </ul>
+      </nav>
+
+      <div class="drawer-footer">
+        <a href="#pricing" class="btn btn-primary full-width js-close-drawer">
+          <span>Explore Plans</span>
+          <i data-lucide="sparkles" class="btn-icon"></i>
+        </a>
+        <div class="drawer-socials">
+          <a href="https://www.instagram.com/janna_magdy_?dlrf=YTZjcWw3Y3Npdmxw"
+            class="social-btn-pill js-social-instagram" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+              fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>@janna_magdy_</span>
+          </a>
+          <a href="https://www.instagram.com/team.mego?vrfl=MW9qeHMycDVwM2FqcQ=="
+            class="social-btn-pill js-social-team-instagram" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+              fill="none">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+            </svg>
+            <span>@team.mego</span>
+          </a>
+          <a href="https://www.tiktok.com/@jannamagdykhalil?_r=1&_t=ZS-9ASrdMo9JI8"
+            class="social-btn-pill js-social-tiktok" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+              fill="none">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+            </svg>
+            <span>TikTok</span>
+          </a>
+          <a href="https://wa.me/201037695962" class="social-btn-pill js-social-whatsapp" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+              fill="none">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <!-- Full-Section Backdrop: the Hero BG plate covering the whole hero, softened under a palette-toned scrim -->
+      <div class="hero-backdrop" aria-hidden="true">
+        <div class="hero-bg-fill"></div>
+        <div class="hero-bg-photo"></div>
+        <div class="hero-bg-scrim"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-grid">
+          <!-- Hero Text Column -->
+          <div class="hero-content">
+            <!-- Desktop hero layout (active on desktop/laptop) -->
+            <div class="hero-desktop-copy hero-lead-desktop">
+              <h1 class="hero-desktop-title">
+                Fitness made for <span class="lead-accent">real life</span> — and made for you.
+              </h1>
+              <p class="hero-desktop-body">
+                Show up at your own pace, enjoy every session, and feel yourself getting stronger, more energetic, and
+                more confident with every week. No pressure, no guesswork.
+              </p>
+            </div>
+
+            <!-- Responsive compact hero layout (active on mobile and tablet) -->
+            <div class="hero-lead-responsive" aria-label="Hero summary">
+              <h1 class="hero-resp-primary">
+                Fitness made for <span class="lead-accent">real life</span> and made for you.
+              </h1>
+              <p class="hero-resp-secondary">
+                Build real strength and quiet confidence at your own pace.
+              </p>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#pricing" class="btn btn-primary btn-large">
+                <span>Explore Plans</span>
+                <i data-lucide="arrow-up-right" class="btn-icon"></i>
+              </a>
+              <a href="#video-feature" class="btn btn-secondary btn-large">
+                <i data-lucide="play" class="btn-icon"></i>
+                <span>Inside The Training</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image: Jana as a clean cut-out floating over the section background -->
+          <div class="hero-visual-frame" id="heroVisualFrame">
+            <div class="hero-backlight-bloom"></div>
+
+            <div class="hero-portrait-card" id="heroCard">
+              <div class="card-inner-bevel">
+                <img src="assets/images/jana hero.png" alt="Jana Magdy (Coach Mego) in athletic wear"
+                  class="hero-portrait-img" loading="eager" fetchpriority="high">
+              </div>
+
+              <!-- Playful one-by-one callouts: each pops in from its own direction,
+                   points a small curved arrow at Jana, then stays put for good. -->
+              <div class="hero-callouts" aria-hidden="true">
+                <div class="hero-callout callout-a">
+                  <span class="callout-bubble">Strong feels good</span>
+                  <svg class="callout-arrow" viewBox="0 0 60 32" fill="none">
+                    <path class="arrow-curve" d="M4 6C19 2 38 9 52 23" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 48 13" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 42 19" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                  </svg>
+                </div>
+
+                <div class="hero-callout callout-b">
+                  <span class="callout-bubble">Own your power</span>
+                  <svg class="callout-arrow" viewBox="0 0 60 32" fill="none">
+                    <path class="arrow-curve" d="M4 6C19 2 38 9 52 23" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 48 13" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 42 19" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                  </svg>
+                </div>
+
+                <div class="hero-callout callout-c">
+                  <span class="callout-bubble">Sweat &amp; smile</span>
+                  <svg class="callout-arrow" viewBox="0 0 60 32" fill="none">
+                    <path class="arrow-curve" d="M4 6C19 2 38 9 52 23" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 48 13" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 42 19" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                  </svg>
+                </div>
+
+                <div class="hero-callout callout-d">
+                  <span class="callout-bubble">You've got this</span>
+                  <svg class="callout-arrow" viewBox="0 0 60 32" fill="none">
+                    <path class="arrow-curve" d="M4 6C19 2 38 9 52 23" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 48 13" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                    <path class="arrow-head" d="M52 23 42 19" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-cue" aria-hidden="true">
+          <span class="scroll-label">SCROLL TO EXPLORE</span>
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== THREE PILLARS (PHILOSOPHY) ==================== -->
+    <section class="pillars-section" id="pillars">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <h2 class="section-title">THE THREE PILLARS OF OUR CRAFT</h2>
+          <p class="section-subtitle">
+            Every workout, every conversation, and every milestone in your coaching journey is guided by three core
+            principles.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1: Intelligence -->
+          <article class="pillar-card">
+            <div class="pillar-card-glow"></div>
+            <div class="pillar-icon-box">
+              <i data-lucide="brain"></i>
+            </div>
+            <span class="pillar-number">01</span>
+            <h3 class="pillar-heading">Intelligence</h3>
+            <p class="pillar-description">
+              Intentional workout structures crafted specifically for female physiology. No random routines or generic
+              fitness trends—only purposeful, anatomy-aligned training.
+            </p>
+            <div class="pillar-tag-list">
+              <span class="pillar-tag">Deliberate Form</span>
+              <span class="pillar-tag">Biomechanics</span>
+            </div>
+          </article>
+
+          <!-- Pillar 2: Performance -->
+          <article class="pillar-card featured-pillar">
+            <div class="pillar-card-glow"></div>
+            <div class="pillar-icon-box">
+              <i data-lucide="activity"></i>
+            </div>
+            <span class="pillar-number">02</span>
+            <h3 class="pillar-heading">Performance</h3>
+            <p class="pillar-description">
+              A confident athletic culture focused on energy, discipline, and measurable physical progress. Developing
+              genuine power, stamina, and posture with every week.
+            </p>
+            <div class="pillar-tag-list">
+              <span class="pillar-tag">Athletic Energy</span>
+              <span class="pillar-tag">Progressive Overload</span>
+            </div>
+          </article>
+
+          <!-- Pillar 3: The Spark -->
+          <article class="pillar-card">
+            <div class="pillar-card-glow"></div>
+            <div class="pillar-icon-box">
+              <i data-lucide="sparkles"></i>
+            </div>
+            <span class="pillar-number">03</span>
+            <h3 class="pillar-heading">The Spark</h3>
+            <p class="pillar-description">
+              The pivotal moment when hesitation turns into unwavering commitment. The sudden clarity that you are
+              entirely capable of becoming your strongest, most energized self.
+            </p>
+            <div class="pillar-tag-list">
+              <span class="pillar-tag">Mental Clarity</span>
+              <span class="pillar-tag">Self-Belief</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT JANA (COACH MEGO) ==================== -->
+    <section class="about-section" id="about">
+      <div class="section-container">
+        <div class="about-grid">
+          <!-- About Visual Collage -->
+          <div class="about-visual-column">
+            <div class="about-frame-wrapper">
+              <div class="about-decorative-glow"></div>
+              <div class="about-portrait-card">
+                <img src="assets/images/about jana.jpeg" alt="Jana Magdy (Coach Mego) in athletic wear"
+                  class="about-portrait-img" loading="lazy">
+                <div class="about-portrait-overlay"></div>
+              </div>
+              <div class="about-accent-box">
+                <span class="accent-number">100%</span>
+                <span class="accent-label">Focused on Women's Health &amp; Strength</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Content -->
+          <div class="about-content-column">
+            <h2 class="section-title">MEET JANA MAGDY</h2>
+
+            <p class="about-lead-paragraph">
+              Jana Magdy — Coach Mego — helps women get stronger with clear guidance and real confidence.
+            </p>
+
+            <p class="about-body-paragraph">
+              Her method replaces guesswork with proper form, programs built for women, and steady progress that fits
+              into everyday life. No intimidation and no extremes — just smart training you can keep up.
+            </p>
+
+            <div class="about-quote-box">
+              <div class="quote-icon">
+                <i data-lucide="quote"></i>
+              </div>
+              <p class="quote-text">
+                “Fitness isn’t punishment. It’s about finding your spark and respecting what your body can do.”
+              </p>
+              <span class="quote-author">Coach Mego</span>
+            </div>
+
+            <div class="about-features-list">
+              <div class="feature-bullet">
+                <div class="bullet-icon-box">
+                  <i data-lucide="check"></i>
+                </div>
+                <div class="bullet-text">
+                  <strong>Safe Technique:</strong> Clear guidance on form to protect your joints and get more from every
+                  session.
+                </div>
+              </div>
+              <div class="feature-bullet">
+                <div class="bullet-icon-box">
+                  <i data-lucide="check"></i>
+                </div>
+                <div class="bullet-text">
+                  <strong>Flexible Routines:</strong> Plans that fit around your day, so staying consistent feels easy.
+                </div>
+              </div>
+              <div class="feature-bullet">
+                <div class="bullet-icon-box">
+                  <i data-lucide="check"></i>
+                </div>
+                <div class="bullet-text">
+                  <strong>Supportive Community:</strong> Women on the same journey, training and progressing together.
+                </div>
+              </div>
+            </div>
+
+            <div class="about-cta-row">
+              <a href="#pricing" class="btn btn-primary">
+                <span>View Training Plans</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </a>
+              <a href="#reviews" class="btn btn-outline">
+                <span>See Real Reviews</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIDEO FEATURE SECTION ==================== -->
+    <section class="video-feature-section" id="video-feature">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <h2 class="section-title">INSIDE THE TRAINING EXPERIENCE</h2>
+          <p class="section-subtitle">
+            Hear directly from Jana on how smart training transforms posture, strength, and overall lifestyle for women.
+          </p>
+        </div>
+
+        <div class="video-feature-layout">
+          <!-- Training video player, centered horizontally -->
+          <div class="video-feature-media">
+            <div class="video-halo-glow" aria-hidden="true"></div>
+
+            <div class="video-media-wrapper" id="videoWrapper">
+              <!-- Native HTML5 Video Player -->
+              <video id="brandVideo" class="brand-video-element" poster="assets/images/cover video.png" playsinline
+                preload="metadata">
+                <source src="assets/videos/jana video.mp4" type="video/mp4">
+                Your browser does not support HTML5 video playback.
+              </video>
+
+              <!-- Video Overlay with Branded Play Button -->
+              <div class="video-custom-overlay" id="videoOverlay">
+                <button class="video-play-trigger" id="videoPlayTrigger" aria-label="Play brand video">
+                  <span class="play-pulse-ring"></span>
+                  <span class="play-icon-center">
+                    <i data-lucide="play" class="custom-play-svg"></i>
+                  </span>
+                </button>
+                <div class="video-overlay-text">
+                  <span class="overlay-title">Watch Coach Mego Explain</span>
+                  <span class="overlay-meta">Full Session &bull; Audio In Arabic</span>
+                </div>
+              </div>
+
+              <!-- Custom Clean Control Bar -->
+              <div class="video-control-bar" id="videoControlBar">
+                <button class="ctrl-btn" id="ctrlPlayPause" aria-label="Toggle Play/Pause">
+                  <i data-lucide="play" id="ctrlPlayIcon"></i>
+                </button>
+
+                <div class="ctrl-progress-container" id="ctrlProgressContainer" role="slider"
+                  aria-label="Video Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                  <div class="ctrl-progress-track">
+                    <div class="ctrl-progress-fill" id="ctrlProgressFill"></div>
+                    <div class="ctrl-progress-handle" id="ctrlProgressHandle"></div>
+                  </div>
+                </div>
+
+                <div class="ctrl-time-display" id="ctrlTimeDisplay">0:00 / 0:00</div>
+
+                <button class="ctrl-btn" id="ctrlMute" aria-label="Toggle Audio Mute">
+                  <i data-lucide="volume-2" id="ctrlMuteIcon"></i>
+                </button>
+
+                <button class="ctrl-btn" id="ctrlFullscreen" aria-label="Toggle Fullscreen">
+                  <i data-lucide="maximize" id="ctrlFullscreenIcon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SUBSCRIPTION PLANS ==================== -->
+    <section class="pricing-section" id="pricing">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <h2 class="section-title">CHOOSE YOUR SUBSCRIPTION</h2>
+          <p class="section-subtitle">
+            Two straightforward options designed to fit your goals. Start your transformation with clear, honest
+            pricing.
+          </p>
+        </div>
+
+        <div class="pricing-cards-grid">
+          <!-- PLAN A: Monthly Subscription -->
+          <article class="pricing-card card-subscription popular-card">
+            <div class="pricing-badge-popular">
+              <i data-lucide="sparkles" class="badge-mini-icon"></i>
+              <span>MOST POPULAR CHOICE</span>
+            </div>
+
+            <div class="card-header">
+              <div class="plan-type-tag">CONTINUOUS MEMBERSHIP</div>
+              <h3 class="plan-title">Monthly Subscription</h3>
+              <p class="plan-tagline">
+                Continuous guidance for women dedicated to long-term habits and consistent transformation.
+              </p>
+            </div>
+
+            <div class="pricing-display">
+              <div class="price-figure-row">
+                <span class="price-currency">EGP</span>
+                <span class="price-amount">156.99</span>
+                <span class="price-period">/ 1st Month</span>
+              </div>
+              <div class="price-renewal-note">
+                <span class="renewal-badge">Special Intro Rate</span>
+                <span class="renewal-text">Renews at <strong>185 EGP</strong> per month subsequently</span>
+              </div>
+            </div>
+
+            <ul class="plan-features-list">
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Full access to monthly workout programs</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Ongoing training cycles tailored for women</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Discounted first-month introductory price</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Automatic monthly renewal (185 EGP/mo)</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Community group access &amp; ongoing updates</span>
+              </li>
+            </ul>
+
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary full-width js-plan-btn" data-plan="monthly">
+                <span>Start Monthly Subscription</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </a>
+              <span class="billing-clarification">First month: 156.99 EGP &bull; Subsequent renewals: 185 EGP</span>
+            </div>
+          </article>
+
+          <!-- PLAN B: One-Month Pass -->
+          <article class="pricing-card card-pass">
+            <div class="card-header">
+              <div class="plan-type-tag">SINGLE ACCESS</div>
+              <h3 class="plan-title">One-Month Pass</h3>
+              <p class="plan-tagline">
+                A single 30-day training pass. Test the waters and experience the training with zero ongoing commitment.
+              </p>
+            </div>
+
+            <div class="pricing-display">
+              <div class="price-figure-row">
+                <span class="price-currency">EGP</span>
+                <span class="price-amount">185</span>
+                <span class="price-period">/ 30 Days</span>
+              </div>
+              <div class="price-renewal-note">
+                <span class="no-renewal-badge">Fixed Duration</span>
+                <span class="renewal-text"><strong>No automatic renewal</strong> &bull; One-time payment</span>
+              </div>
+            </div>
+
+            <ul class="plan-features-list">
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Complete 30-day access to the training block</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>No recurring charges or future auto-debits</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Perfect for trying out Coach Mego's program</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Structured routines designed for female strength</span>
+              </li>
+              <li>
+                <div class="feature-icon"><i data-lucide="check"></i></div>
+                <span>Option to transition to monthly membership anytime</span>
+              </li>
+            </ul>
+
+            <div class="card-footer">
+              <a href="#" class="btn btn-outline full-width js-plan-btn" data-plan="pass">
+                <span>Get One-Month Pass</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </a>
+              <span class="billing-clarification">Price: 185 EGP &bull; Duration: 30 days &bull; No auto-renewal</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="pricing-trust-bar">
+          <div class="trust-pill">
+            <i data-lucide="shield-check"></i>
+            <span>Secure Official Portal Checkout</span>
+          </div>
+          <div class="trust-pill">
+            <i data-lucide="refresh-cw"></i>
+            <span>Transparent Pricing Policy</span>
+          </div>
+          <div class="trust-pill">
+            <i data-lucide="message-circle"></i>
+            <span>Questions? Reach Out Via Socials</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REVIEWS SECTION ==================== -->
+    <section class="reviews-section" id="reviews">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <h2 class="section-title">REVIEWS</h2>
+          <p class="section-subtitle">
+            Authentic messages and feedback shared inside the Mego community. Real women celebrating real changes in
+            their fitness, energy, and strength.
+          </p>
+        </div>
+
+        <!-- "1 of 11" counter, sitting above the image -->
+        <div class="review-counter" aria-live="polite">
+          <span id="reviewCurrentNum">1</span> of <span id="reviewTotalNum">11</span>
+        </div>
+
+        <!-- Single-image reviews carousel: exactly one review is on stage at a
+             time, flanked by a simple arrow on each side. Every screenshot keeps
+             its own aspect ratio and is never cropped. -->
+        <div class="reviews-carousel" aria-label="Client Reviews">
+          <button class="review-nav-btn review-nav-prev" id="reviewPrevBtn" aria-label="Previous review">
+            <i data-lucide="chevron-left"></i>
+          </button>
+
+          <div class="review-stage" id="reviewStage">
+            <img class="review-stage-img is-active" src="assets/reviews/review 1.png"
+              alt="Client review message from training group">
+            <img class="review-stage-img" src="assets/reviews/review 2.png"
+              alt="Client review message about strength improvement">
+            <img class="review-stage-img" src="assets/reviews/review 3.png"
+              alt="Client feedback on training experience">
+            <img class="review-stage-img" src="assets/reviews/review 4.png" alt="Client sharing fitness results">
+            <img class="review-stage-img" src="assets/reviews/review 5.png"
+              alt="Client message regarding workout habit">
+            <img class="review-stage-img" src="assets/reviews/review 6.png" alt="Client review message">
+            <img class="review-stage-img" src="assets/reviews/review 7.png" alt="Client feedback on body composition">
+            <img class="review-stage-img" src="assets/reviews/review 8.png"
+              alt="Client review message celebrating milestones">
+            <img class="review-stage-img" src="assets/reviews/review 9.png" alt="Client feedback message">
+            <img class="review-stage-img" src="assets/reviews/review 10.png" alt="Client review about training">
+            <img class="review-stage-img" src="assets/reviews/review 11.png"
+              alt="Client message regarding workout satisfaction">
+          </div>
+
+          <button class="review-nav-btn review-nav-next" id="reviewNextBtn" aria-label="Next review">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Pagination Dots -->
+        <div class="review-dots" id="reviewDots" aria-label="Review pagination"></div>
+      </div>
+    </section>
+
+    <!-- ==================== CONNECT SECTION ==================== -->
+    <section class="connect-section" id="contact">
+      <div class="section-container">
+        <div class="connect-banner-card">
+          <div class="connect-halo" aria-hidden="true"></div>
+
+          <div class="connect-content">
+            <h2 class="connect-title">CONNECT WITH JANA</h2>
+            <p class="connect-lead">
+              Follow along for daily exercise tips, routines, and community highlights. Join our official channels and
+              discover how strength becomes a natural part of your life.
+            </p>
+
+            <div class="connect-channels-grid">
+              <!-- Personal Instagram Card -->
+              <a href="https://www.instagram.com/janna_magdy_?dlrf=YTZjcWw3Y3Npdmxw"
+                class="channel-card js-social-instagram" target="_blank" rel="noopener noreferrer">
+                <div class="channel-icon-circle instagram">
+                  <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor"
+                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">@janna_magdy_</span>
+                  <span class="channel-sub">Personal Coaching &amp; Stories</span>
+                </div>
+                <i data-lucide="external-link" class="channel-arrow"></i>
+              </a>
+
+              <!-- Team Mego Instagram Card -->
+              <a href="https://www.instagram.com/team.mego?vrfl=MW9qeHMycDVwM2FqcQ=="
+                class="channel-card js-social-team-instagram" target="_blank" rel="noopener noreferrer">
+                <div class="channel-icon-circle team-instagram">
+                  <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor"
+                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">@team.mego</span>
+                  <span class="channel-sub">Mego Girls Community</span>
+                </div>
+                <i data-lucide="external-link" class="channel-arrow"></i>
+              </a>
+
+              <!-- TikTok Card -->
+              <a href="https://www.tiktok.com/@jannamagdykhalil?_r=1&_t=ZS-9ASrdMo9JI8"
+                class="channel-card js-social-tiktok" target="_blank" rel="noopener noreferrer">
+                <div class="channel-icon-circle tiktok">
+                  <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor"
+                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">@jannamagdykhalil</span>
+                  <span class="channel-sub">Workout Videos &amp; Form</span>
+                </div>
+                <i data-lucide="external-link" class="channel-arrow"></i>
+              </a>
+
+              <!-- WhatsApp & Phone Inquiries Card -->
+              <a href="https://wa.me/201037695962" class="channel-card js-social-whatsapp" target="_blank"
+                rel="noopener noreferrer">
+                <div class="channel-icon-circle whatsapp">
+                  <!-- Dedicated WhatsApp Brand SVG Icon -->
+                  <svg class="icon-svg whatsapp-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.887 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">+20 10 3769 5962</span>
+                  <span class="channel-sub">Direct WhatsApp &amp; Inquiries</span>
+                </div>
+                <i data-lucide="external-link" class="channel-arrow"></i>
+              </a>
+            </div>
+
+            <div class="connect-action-row">
+              <a href="#pricing" class="btn btn-primary btn-large">
+                <span>View Subscription Plans</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <div class="brand-identity footer-brand-identity">
+            <!-- Circular Footer Logo Frame without hover motion -->
+            <div class="brand-logo-frame circular-footer-logo">
+              <img src="assets/images/logo.jpg" alt="Coach Mego Logo" class="brand-logo-img">
+            </div>
+            <div class="brand-naming static-brand-naming">
+              <span class="brand-name">JANA MAGDY</span>
+              <span class="brand-subtitle">COACH MEGO</span>
+            </div>
+          </div>
+          <p class="footer-bio">
+            A spark that inspires transformation. Dedicated, intelligent, and performance-driven fitness programming
+            designed exclusively for women.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Top</a></li>
+            <li><a href="#about">About Jana</a></li>
+            <li><a href="#video-feature">Inside The Training</a></li>
+            <li><a href="#pricing">Subscription Plans</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Subscriptions</h4>
+          <ul class="footer-links">
+            <li><a href="#pricing">Monthly Plan (156.99 EGP 1st mo)</a></li>
+            <li><a href="#pricing">One-Month Pass (185 EGP)</a></li>
+            <li><a href="#pricing">Pricing Structure &amp; Terms</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-col">
+          <h4 class="footer-col-title">Connect</h4>
+          <div class="footer-social-icons">
+            <a href="https://www.instagram.com/janna_magdy_?dlrf=YTZjcWw3Y3Npdmxw"
+              class="social-circle js-social-instagram" target="_blank" rel="noopener noreferrer"
+              aria-label="Jana Magdy Instagram" title="Jana's Instagram (@janna_magdy_)">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+                fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/team.mego?vrfl=MW9qeHMycDVwM2FqcQ=="
+              class="social-circle js-social-team-instagram" target="_blank" rel="noopener noreferrer"
+              aria-label="Team Mego Instagram" title="Team Mego Community (@team.mego)">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+                fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@jannamagdykhalil?_r=1&_t=ZS-9ASrdMo9JI8"
+              class="social-circle js-social-tiktok" target="_blank" rel="noopener noreferrer"
+              aria-label="TikTok Profile" title="TikTok (@jannamagdykhalil)">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+                fill="none">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/201037695962" class="social-circle js-social-whatsapp" target="_blank"
+              rel="noopener noreferrer" aria-label="WhatsApp Contact" title="WhatsApp (+20 10 3769 5962)">
+              <!-- Official WhatsApp Brand SVG Icon -->
+              <svg class="icon-svg whatsapp-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.887 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+          </div>
+          <p class="footer-note">Direct WhatsApp: +20 10 3769 5962 .</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="copyright-text">
+          &copy; <span id="copyrightYear">2026</span> Jana Magdy. Independent Digital Brand &amp; Concept Portfolio.
+        </p>
+        <p class="disclaimer-text">
+          Concept design showcasing visual identity and frontend architecture. Not an officially commissioned or
+          endorsed claim.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== NOTIFICATION TOAST ==================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript Main Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
