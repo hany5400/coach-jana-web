@@ -398,11 +398,14 @@ function initReviewsCarousel() {
 
   if (!stage) return;
 
+  const slides = Array.from(stage.querySelectorAll('.review-slide'));
   const images = Array.from(stage.querySelectorAll('.review-stage-img'));
-  const total = images.length;
+  const total = slides.length || images.length;
   if (!total) return;
 
   let index = 0;
+  let isProgrammaticScroll = false;
+  let programmaticScrollTimer = null;
 
   if (totalNum) totalNum.textContent = total;
 
@@ -411,82 +414,125 @@ function initReviewsCarousel() {
   // Build pagination dots for mobile
   if (dotsContainer) {
     dotsContainer.innerHTML = '';
-    images.forEach((_, i) => {
+    for (let i = 0; i < total; i++) {
       const dot = document.createElement('button');
       dot.className = `review-dot ${i === 0 ? 'is-active' : ''}`;
       dot.setAttribute('type', 'button');
       dot.setAttribute('aria-label', `Go to review ${i + 1}`);
-      dot.addEventListener('click', () => showReview(i));
+      dot.addEventListener('click', () => showReview(i, true));
       dotsContainer.appendChild(dot);
-    });
+    }
   }
 
-  const showReview = (newIndex) => {
-    // Wrap continuously in both directions: past 11 returns to 1, and before 1
-    // jumps to 11, so neither arrow can ever reach a dead end.
-    index = ((newIndex % total) + total) % total;
-
+  const updateUI = () => {
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
     images.forEach((img, i) => img.classList.toggle('is-active', i === index));
 
     if (currentNum) currentNum.textContent = index + 1;
 
-    // Update pagination dots
     if (dotsContainer) {
       const dots = dotsContainer.querySelectorAll('.review-dot');
       dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
     }
   };
 
-  if (prevBtn) prevBtn.addEventListener('click', () => showReview(index - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => showReview(index + 1));
+  const showReview = (newIndex, scrollStage = true) => {
+    // Wrap continuously: past 11 returns to 1, before 1 jumps to 11
+    index = ((newIndex % total) + total) % total;
+    updateUI();
 
-  // Touch swipe support for mobile
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchEndX = 0;
-  let touchEndY = 0;
-
-  stage.addEventListener('touchstart', (e) => {
-    if (e.changedTouches && e.changedTouches[0]) {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-    }
-  }, { passive: true });
-
-  stage.addEventListener('touchend', (e) => {
-    if (e.changedTouches && e.changedTouches[0]) {
-      touchEndX = e.changedTouches[0].screenX;
-      touchEndY = e.changedTouches[0].screenY;
-      handleSwipe();
-    }
-  }, { passive: true });
-
-  const handleSwipe = () => {
-    const diffX = touchEndX - touchStartX;
-    const diffY = touchEndY - touchStartY;
-    // Horizontal swipe threshold: 35px, and horizontal travel exceeds vertical
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
-      if (diffX < 0) {
-        showReview(index + 1); // Swipe left -> next
-      } else {
-        showReview(index - 1); // Swipe right -> previous
+    // On mobile where stage is horizontally scrollable, align stage position directly
+    if (scrollStage && stage.scrollWidth > stage.clientWidth + 5) {
+      const targetLeft = index * stage.clientWidth;
+      if (Math.abs(stage.scrollLeft - targetLeft) > 2) {
+        isProgrammaticScroll = true;
+        stage.scrollTo({
+          left: targetLeft,
+          behavior: 'auto'
+        });
+        clearTimeout(programmaticScrollTimer);
+        programmaticScrollTimer = setTimeout(() => {
+          isProgrammaticScroll = false;
+        }, 60);
       }
     }
   };
 
-  // Keyboard support when the carousel itself has focus.
+  // Sync scroll position with active index and pagination dots in real time on mobile swipe
+  stage.addEventListener('scroll', () => {
+    if (isProgrammaticScroll) return;
+    const slideWidth = stage.clientWidth;
+    if (!slideWidth) return;
+    const scrolledIndex = Math.round(stage.scrollLeft / slideWidth);
+    if (scrolledIndex >= 0 && scrolledIndex < total && scrolledIndex !== index) {
+      index = scrolledIndex;
+      updateUI();
+    }
+  }, { passive: true });
+
+  // Keep scroll aligned on window resize / orientation change
+  window.addEventListener('resize', () => {
+    if (stage.scrollWidth > stage.clientWidth + 5) {
+      stage.scrollLeft = index * stage.clientWidth;
+    }
+  });
+
+  // Mouse drag support for testing swipe on mobile viewport
+  let isDown = false;
+  let startX = 0;
+  let scrollStart = 0;
+  let hasDragged = false;
+
+  stage.addEventListener('mousedown', (e) => {
+    if (stage.scrollWidth <= stage.clientWidth + 5) return;
+    if (e.button !== 0) return;
+    isDown = true;
+    hasDragged = false;
+    startX = e.pageX;
+    scrollStart = stage.scrollLeft;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const diff = e.pageX - startX;
+    if (Math.abs(diff) > 4) {
+      hasDragged = true;
+      e.preventDefault();
+      stage.scrollLeft = scrollStart - diff;
+    }
+  });
+
+  const finishMouseDrag = () => {
+    if (!isDown) return;
+    isDown = false;
+    if (hasDragged) {
+      const slideWidth = stage.clientWidth;
+      if (slideWidth) {
+        const nearestIndex = Math.round(stage.scrollLeft / slideWidth);
+        showReview(nearestIndex, true);
+      }
+    }
+  };
+
+  window.addEventListener('mouseup', finishMouseDrag);
+
+  // Desktop arrow navigation
+  if (prevBtn) prevBtn.addEventListener('click', () => showReview(index - 1, true));
+  if (nextBtn) nextBtn.addEventListener('click', () => showReview(index + 1, true));
+
+  // Keyboard navigation when stage has focus
   stage.setAttribute('tabindex', '0');
   stage.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
       e.preventDefault();
-      showReview(index - 1);
+      showReview(index - 1, true);
     } else if (e.key === 'ArrowRight') {
       e.preventDefault();
-      showReview(index + 1);
+      showReview(index + 1, true);
     }
   });
 
-  showReview(0);
+  showReview(0, false);
 }
 
 // ==========================================

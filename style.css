@@ -2541,6 +2541,11 @@ main {
   height: min(600px, 68vh);
 }
 
+/* Desktop: review-slide produces no box so existing stage flex and img rules apply directly */
+.review-slide {
+  display: contents;
+}
+
 /* The full screenshot, always: `contain` inside the fixed box keeps the whole
    message visible — no sides or bottom trimmed — while letting each image use
    the largest size that fits without changing the box itself. */
@@ -2552,6 +2557,8 @@ main {
   object-fit: contain;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
+  user-select: none;
+  -webkit-user-drag: none;
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -3806,44 +3813,73 @@ main {
     gap: 0;
   }
 
-  /* Stage height fits active image directly so no dead vertical space above or below */
+  /* Horizontal swipe gallery stage on mobile */
   .review-stage {
     width: 100%;
     max-width: 100%;
     height: auto;
     min-height: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x pan-y;
     position: relative;
-    touch-action: pan-y;
     cursor: grab;
   }
 
-  /* Active review image establishes natural compact height without empty gaps */
-  .review-stage-img.is-active {
-    position: relative;
+  .review-stage:active {
+    cursor: grabbing;
+  }
+
+  .review-stage::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each slide is an adjacent full-width item in the horizontal row */
+  .review-slide {
+    display: flex !important;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+    padding: 0 2px;
+  }
+
+  /* All mobile images sit side-by-side without fade/zoom transitions */
+  .review-stage .review-stage-img,
+  .review-stage .review-stage-img.is-active,
+  .review-stage .review-stage-img:not(.is-active) {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transition: none !important;
+    animation: none !important;
     max-height: min(430px, 58vh);
     width: auto;
     max-width: 100%;
     display: block;
     margin: 0 auto;
-    top: auto;
-    left: auto;
-    transform: none;
-  }
-
-  /* Inactive images kept absolutely centered for smooth cross-fading */
-  .review-stage-img:not(.is-active) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    max-height: min(430px, 58vh);
-    max-width: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   /* Pagination dots moved closer below reviews on mobile */
